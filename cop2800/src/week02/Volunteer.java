@@ -40,12 +40,17 @@ public class Volunteer{
 		m_lastname = lastName;
 		m_startDate = startDate;
 		m_hours = volunteerHours;
-	
 	}
+	
 	
 	
 	// Public Methods
 	
+	//public int updateVolunteerHours () {
+	//	localDate now = LocalDatae.now();
+	//	int nowYear;
+		
+	//}
 	// Protected Methods
 	
 	// Private Methods
@@ -55,19 +60,32 @@ public class Volunteer{
 		return m_firstName;
 	}
 	public void setM_firstName(String m_firstName) {
-		this.m_firstName = m_firstName;
+		if (m_firstName != null && m_firstName.length() > 0) {
+			this.m_firstName = m_firstName;
+		}
 	}
+	
 	public String getM_lastname() {
 		return m_lastname;
 	}
 	public void setM_lastname(String m_lastname) {
-		this.m_lastname = m_lastname;
+		if (m_lastname != null && m_lastname.length() > 0) {
+			this.m_lastname = m_lastname;
+		}
+		
 	}
 	public LocalDate getM_startDate() {
 		return m_startDate;
 	}
 	public void setM_startDate(LocalDate m_startDate) {
-		this.m_startDate = m_startDate;
+		if (m_startDate != null) {
+			this.m_startDate = m_startDate;
+		}
+	//public void setM_startDate(int year, int month, int day) {
+	//	LocalDate tempDate = LocalDate.of(int year, month, dayOfMonth);
+	///	this.m_startDate = LocalDate.of(year, month, dayOfMonth);
+	//}
+		
 	}
 	public double getM_hours() {
 		return m_hours;

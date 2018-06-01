@@ -1,3 +1,6 @@
+/**
+ * @author David Rios
+ */
 package week02;
 
 import java.time.LocalDate;
@@ -36,67 +39,131 @@ public class Volunteer{
 	 */
 	public Volunteer(String firstName, String lastName, LocalDate startDate, double volunteerHours)
 	{
-		m_firstName = firstName;
-		m_lastname = lastName;
-		m_startDate = startDate;
-		m_hours = volunteerHours;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.startDate = startDate;
+		this.volunteerHours = volunteerHours;
+		
 	}
 	
-	
+	/**
+	 * This constructor calls the Setters, sets them to Default Values, then checks to see if the updated
+	 * value is null
+	 */
+	public Volunteer(String firstName, String lastName, LocalDate startDate)
+	{
+		this.firstName = DEFAULT_FIRST_NAME;
+		this.lastName = DEFAULT_LAST_NAME;
+		this.startDate = DEFAULT_START_DATE;
+		this.setFirstName(firstName);
+		this.setLastName(lastName);
+		this.setStartDate(startDate);
+	}
 	
 	// Public Methods
 	
-	//public int updateVolunteerHours () {
-	//	localDate now = LocalDatae.now();
-	//	int nowYear;
+	/**
+	 * Adds the value of hours the volunteer has worked currently to the numbers already worked total.
+	 * 
+	 * @param newvolunteerHours current amount of hours worked by volunteer currently
+	 * @param volunteerHours Last known amount of hours worked by volunteer total.
+	 * @param this.volunteerHours Total amount of hours worked between newvolunteerHours and volunteerHours
+	 */
+	public void updateVolunteerHours (double hours) {
 		
-	//}
+		this.volunteerHours =  hours + volunteerHours;
+	}
 	// Protected Methods
 	
 	// Private Methods
 	
 	// Public Methods
-	public String getM_firstName() {
-		return m_firstName;
+	
+	/**
+	 * Getters and setters for Volunteer class
+	 * 
+	 * @return Getter: Returns first name of Volunteer
+	 */
+	public String getFirstName() {
+		return firstName;
 	}
-	public void setM_firstName(String m_firstName) {
-		if (m_firstName != null && m_firstName.length() > 0) 
-			this.m_firstName = m_firstName;
+	/**
+	 * @return Setter: Updates newFName with user input
+	 */
+	public void setFirstName(String newFName) {
+		if (firstName != null && firstName.length() > 0) 
+			this.firstName = newFName;
 	}
-	public String getM_lastname() {
-		return m_lastname;
+	/**
+	 * @return Getter returns volunteerHours
+	 */
+	public String getLastName() {
+		return lastName;
 	}
-	public void setM_lastname(String m_lastname) {
-		if (m_lastname != null && m_lastname.length() > 0) 
-			this.m_lastname = m_lastname;
+	/**
+	 * @return Setter, updates lastName with user input
+	 */
+	public void setLastName(String newLastName) {
+		if (lastName != null && lastName.length() > 0) 
+			this.lastName = newLastName;
 	}
-	public LocalDate getM_startDate() {
-		return m_startDate;
+	/**
+	 * @return Getter returns startDate
+	 */
+	public LocalDate getStartDate() {
+		return startDate;
 	}
-	public void setM_startDate(LocalDate m_startDate) {
-		if (m_startDate != null) 
-			this.m_startDate = m_startDate;
+	/**
+	 * @return Setter, updates startDate with user input
+	 */
+	public void setStartDate(LocalDate newStartDate) {
+		if (startDate != null) 
+			this.startDate = newStartDate;
 		}
-	public void setM_startDate(int year, int month, int day) {
-		this.m_startDate = LocalDate.of(year, month, day);
+	/**
+	 *@param Overload for setstartDate. Updates year, month, day.
+	 */
+	public void setStartDate(int year, int month, int day) {
+		this.startDate = LocalDate.of(year, month, day);
 	}
-	public double getM_hours() {
-		return m_hours;
+	/**
+	 * @return Getter returns volunteerHours
+	 */
+	public double getVolunteerHours() {
+		return volunteerHours;
 	}
-	public void setM_hours(double m_hours) {
-		this.m_hours = m_hours;
+	/**
+	 *@return Setter, updates volunteerHours with user input
+	 */
+	public void setVolunteerHours(double newHours) {
+		this.volunteerHours = newHours;
 	}
-
 
 	// Public Constants
 	public static final String DEFAULT_FIRST_NAME = "no first name assigned";
-	public static final String DEFAULT_LAST_NAME = "no first name assigned";
+	public static final String DEFAULT_LAST_NAME = "no last name assigned";
 	public static final LocalDate DEFAULT_START_DATE = LocalDate.now();
 	public static final double DEFAULT_HOURS = 0;
 	
 	// Private data
-	private String m_firstName;
-	private String m_lastname;
-	private LocalDate m_startDate;
-	private double m_hours;
+	private String firstName;
+	private String lastName;
+	private LocalDate startDate;
+	private double volunteerHours;
+
+	
+/**
+ * @return Returned values based on user input. 
+ */
+public String toString() {
+		
+	return 
+	"Volunteer " +
+	"[firstName=" + firstName + ", " +
+	"lastName=" + lastName + ", " +
+	"startDate=" + startDate + ", " +
+	"volunteerHours=" + volunteerHours+ "]";
+	
+	}
 }
+	
